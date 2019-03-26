@@ -19,4 +19,39 @@ interface SiteAlertInterface
      * @return ActiveQuery
      */
     public function getGroup(): ActiveQuery;
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getUserAlerts(): ActiveQuery;
+
+    /**
+     * перенос данных из формы в модель
+     * @return void
+     */
+    public function getFromForm();
+
+    /**
+     * добавление модели
+     * @return bool
+     */
+    public function insertModel(): bool;
+
+    /**
+     * обновление модели
+     * @return bool
+     */
+    public function updateModel(): bool;
+
+    /**
+     * удаление модели
+     * @return bool
+     */
+    public function deleteModel(): bool;
+
+    /**
+     * сброс группы (при удалении группы)
+     * @return bool
+     */
+    public function resetGroup(): bool;
 }
