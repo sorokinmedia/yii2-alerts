@@ -1,0 +1,56 @@
+{
+    "name": "sorokinmedia/yii2-alerts",
+    "description": "User alerts component for Yii2",
+    "type": "yii2-extension",
+    "keywords": ["yii2", "yii 2", "user", "alerts"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Ruslan Gilyazetdinov",
+            "email": "ma3obblu@gmail.com",
+            "homepage": "https://vk.com/ma3obblu"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/sorokinmedia/yii2-alerts/issues?state=open",
+        "source": "https://github.com/sorokinmedia/yii2-alerts"
+    },
+    "require": {
+        "yiisoft/yii2": ">=2.1.10",
+        "sorokinmedia/yii2-ar-relations": "dev-master",
+        "sorokinmedia/yii2-helpers": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "sorokinmedia\\alerts\\": "src/",
+            "sorokinmedia\\alerts\\entities\\": "src/entities/",
+            "sorokinmedia\\alerts\\forms\\": "src/forms/",
+            "sorokinmedia\\alerts\\handlers\\": "src/handlers/",
+            "sorokinmedia\\alerts\\migrations\\": "src/migrations/",
+            "sorokinmedia\\alerts\\tests\\": "tests/",
+            "sorokinmedia\\alerts\\tests\\entities\\": "tests/entities",
+            "sorokinmedia\\alerts\\tests\\handlers\\": "tests/handlers"
+        }
+    },
+    "config": {
+        "process-timeout": 1800,
+        "fxp-asset": {
+            "enabled": false
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    }
+}
