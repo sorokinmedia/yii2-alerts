@@ -13,12 +13,14 @@ class m180729_132939_add_user_site_alert extends Migration
     public function safeUp()
     {
         $this->createTable('user_site_alert', [
+            'id' => $this->primaryKey(),
             'user_id' => $this->integer(),
             'alert_id' => $this->integer(),
-            'view_count' => $this->integer(),
-            'is_removable' => $this->integer(1),
-            'is_clicked' => $this->integer(1),
-            'is_finished' => $this->integer(1),
+            'view_count' => $this->integer()->defaultValue(0),
+            'is_removable' => $this->integer(1)->defaultValue(0),
+            'is_clicked' => $this->integer(1)->defaultValue(0),
+            'is_closed' => $this->integer(1)->defaultValue(0),
+            'is_finished' => $this->integer(1)->defaultValue(0),
         ]);
     }
 

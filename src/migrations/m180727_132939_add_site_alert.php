@@ -17,6 +17,7 @@ class m180727_132939_add_site_alert extends Migration
             'name' => $this->string(255),
             'text' => $this->text(),
             'image' => $this->string(255),
+            'role' => $this->string(255),
             'view_count_to_close' => $this->integer(),
             'finish_date' => $this->integer(),
             'group_id' => $this->integer(),
