@@ -16,6 +16,11 @@ interface SiteAlertGroupInterface
     public static function getRoles(): array;
 
     /**
+     * @return array
+     */
+    public static function getGroupsArray(): array;
+
+    /**
      * @return Role|null
      */
     public function getRoleObject();

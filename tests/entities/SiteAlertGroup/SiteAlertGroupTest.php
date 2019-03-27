@@ -62,6 +62,20 @@ class SiteAlertGroupTest extends TestCase
     /**
      * @group alert_group
      * @throws \Throwable
+     * @throws \yii\base\InvalidConfigException
+     * @throws \yii\db\Exception
+     */
+    public function testGetGroupsArray()
+    {
+        $this->initDb();
+        $array = SiteAlertGroup::getGroupsArray();
+        $this->assertInternalType('array', $array);
+        $this->assertNotEmpty($array);
+    }
+
+    /**
+     * @group alert_group
+     * @throws \Throwable
      */
     public function testGetFromForm()
     {

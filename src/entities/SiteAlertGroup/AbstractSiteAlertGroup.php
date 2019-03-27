@@ -92,6 +92,18 @@ abstract class AbstractSiteAlertGroup extends ActiveRecord implements RelationIn
     abstract public static function getRoles(): array;
 
     /**
+     * @return array
+     */
+    public static function getGroupsArray(): array
+    {
+        return static::find()
+            ->select(['name', 'id'])
+            ->indexBy('id')
+            ->orderBy(['name' => SORT_ASC])
+            ->column();
+    }
+
+    /**
      * @return Role|null
      */
     public function getRoleObject()
