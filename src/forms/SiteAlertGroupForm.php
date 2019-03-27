@@ -2,6 +2,8 @@
 namespace sorokinmedia\alerts\forms;
 
 use sorokinmedia\alerts\entities\SiteAlertGroup\AbstractSiteAlertGroup;
+use sorokinmedia\alerts\entities\SiteAlertGroup\SiteAlertGroupInterface;
+use sorokinmedia\user\entities\User\UserInterface;
 use yii\base\Model;
 
 /**
@@ -41,7 +43,6 @@ class SiteAlertGroupForm extends Model
         return [
             [['name', 'role', 'priority'], 'required'],
             [['name', 'role'], 'string', 'max' => 255],
-            [['role'], 'in', 'range' => array_keys(AbstractSiteAlertGroup::getRoles())],
             [['priority'], 'default', 'value' => 10]
         ];
     }

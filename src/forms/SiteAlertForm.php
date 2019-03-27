@@ -58,7 +58,6 @@ class SiteAlertForm extends Model
             [['name', 'text', 'role', 'order_id'], 'required'],
             [['name', 'role', 'image'], 'string', 'max' => 255],
             [['text'], 'string'],
-            [['role'], 'in', 'range' => array_keys(AbstractSiteAlertGroup::getRoles())],
             [['group_id'], 'exist', 'targetClass' => AbstractSiteAlertGroup::class, 'targetAttribute' => ['group_id' => 'id']],
             [['view_count_to_close', 'finish_date', 'order_id'], 'integer']
         ];

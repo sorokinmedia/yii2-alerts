@@ -50,7 +50,7 @@ abstract class AbstractSiteAlert extends ActiveRecord implements RelationInterfa
             [['name', 'text', 'role', 'order_id'], 'required'],
             [['name', 'role', 'image'], 'string', 'max' => 255],
             [['text'], 'string'],
-            [['role'], 'in', 'range' => array_keys(AbstractSiteAlertGroup::getRoles())],
+            [['role'], 'validateRole'],
             [['group_id'], 'exist', 'targetClass' => AbstractSiteAlertGroup::class, 'targetAttribute' => ['group_id' => 'id']],
             [['view_count_to_close', 'finish_date', 'order_id'], 'integer']
         ];
@@ -72,6 +72,16 @@ abstract class AbstractSiteAlert extends ActiveRecord implements RelationInterfa
             'group_id' => \Yii::t('app', 'Группа'),
             'order_id' => \Yii::t('app', 'Порядковый номер'),
         ];
+    }
+
+    /**
+     * @param $attribute
+     * @param $params
+     * @return bool
+     */
+    public function validateRole($attribute, $params)
+    {
+        return array_key_exists($this->role, $this->__siteAlertGroupClass::getRoles());
     }
 
     /**

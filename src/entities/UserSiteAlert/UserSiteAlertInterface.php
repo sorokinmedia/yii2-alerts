@@ -70,4 +70,10 @@ interface UserSiteAlertInterface
      * @return bool
      */
     public function deleteModel(): bool;
+
+    /**
+     * действия после удаления алерта у юзера
+     * @return bool
+     */
+    public function afterDeleteModel(): bool;
 }

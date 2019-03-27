@@ -187,4 +187,10 @@ abstract class AbstractUserSiteAlert extends ActiveRecord implements RelationInt
         }
         return true;
     }
+
+    /**
+     * доп действия после удаления алерта у юзера
+     * @return bool
+     */
+    abstract public function afterDeleteModel(): bool;
 }
