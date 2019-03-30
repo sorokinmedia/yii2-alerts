@@ -190,10 +190,10 @@ class UserSiteAlertTest extends TestCase
      * @throws \yii\base\InvalidConfigException
      * @throws \yii\db\Exception
      */
-    public function testAfterDeleteModel()
+    public function testBeforeDeleteUserSiteAlert()
     {
         $this->initDb();
         $model = UserSiteAlert::findOne(1);
-        $this->assertTrue($model->afterDeleteModel());
+        $this->assertTrue($model->beforeDeleteUserSiteAlert());
     }
 }

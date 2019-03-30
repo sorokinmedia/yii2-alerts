@@ -72,8 +72,8 @@ interface UserSiteAlertInterface
     public function deleteModel(): bool;
 
     /**
-     * действия после удаления алерта у юзера
+     * действия до удаления алерта у пользователя
      * @return bool
      */
-    public function afterDeleteModel(): bool;
+    public function beforeDeleteUserSiteAlert(): bool;
 }

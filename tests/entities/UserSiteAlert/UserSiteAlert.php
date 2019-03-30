@@ -23,7 +23,7 @@ class UserSiteAlert extends AbstractUserSiteAlert
     /**
      * @return bool
      */
-    public function afterDeleteModel(): bool
+    public function beforeDeleteUserSiteAlert(): bool
     {
         return true;
     }
