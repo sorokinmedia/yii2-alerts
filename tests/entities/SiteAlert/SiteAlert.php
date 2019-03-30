@@ -11,4 +11,12 @@ use sorokinmedia\alerts\tests\entities\RelationClassTrait;
 class SiteAlert extends AbstractSiteAlert
 {
     use RelationClassTrait;
+
+    /**
+     * @return bool
+     */
+    public function beforeSiteAlertDelete(): bool
+    {
+        return true;
+    }
 }

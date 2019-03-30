@@ -44,6 +44,12 @@ interface SiteAlertInterface
     public function updateModel(): bool;
 
     /**
+     * вызывает перед удаление алерта
+     * @return bool
+     */
+    public function beforeSiteAlertDelete(): bool;
+
+    /**
      * удаление модели
      * @return bool
      */

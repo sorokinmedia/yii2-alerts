@@ -4,7 +4,6 @@ namespace sorokinmedia\alerts\entities\SiteAlert;
 use sorokinmedia\alerts\entities\SiteAlertGroup\AbstractSiteAlertGroup;
 use sorokinmedia\alerts\entities\UserSiteAlert\AbstractUserSiteAlert;
 use sorokinmedia\alerts\forms\SiteAlertForm;
-use sorokinmedia\alerts\handlers\UserSiteAlert\UserSiteAlertHandler;
 use sorokinmedia\ar_relations\RelationInterface;
 use yii\db\{ActiveQuery, ActiveRecord, Exception};
 use yii\rbac\Role;
@@ -166,6 +165,12 @@ abstract class AbstractSiteAlert extends ActiveRecord implements RelationInterfa
     }
 
     /**
+     * перед удалением алерта
+     * @return bool
+     */
+    abstract public function beforeSiteAlertDelete(): bool;
+
+    /**
      * @return bool
      * @throws Exception
      * @throws \Throwable
@@ -173,12 +178,7 @@ abstract class AbstractSiteAlert extends ActiveRecord implements RelationInterfa
      */
     public function deleteModel(): bool
     {
-        if ($this->userAlerts){
-            foreach ($this->userAlerts as $userAlert){
-                /** @var AbstractUserSiteAlert $userAlert */
-                (new UserSiteAlertHandler($userAlert))->delete();
-            }
-        }
+        $this->beforeSiteAlertDelete();
         if (!$this->delete()){
             throw new Exception(\Yii::t('app', 'Ошибка при удалении из БД'));
         }

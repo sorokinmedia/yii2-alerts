@@ -150,7 +150,6 @@ class SiteAlertTest extends TestCase
         $this->assertTrue($model->deleteModel());
         $deleted_model = SiteAlert::findOne(1);
         $this->assertNull($deleted_model);
-        $this->assertEmpty(UserSiteAlert::find()->where(['alert_id' => 1])->all());
     }
 
     /**
