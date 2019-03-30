@@ -4,7 +4,7 @@ namespace sorokinmedia\alerts\entities\SiteAlert;
 use sorokinmedia\alerts\entities\SiteAlertGroup\AbstractSiteAlertGroup;
 use sorokinmedia\alerts\entities\UserSiteAlert\AbstractUserSiteAlert;
 use sorokinmedia\alerts\forms\SiteAlertForm;
-use sorokinmedia\alerts\interfaces\SiteAlert\SiteAlertInterface;
+use sorokinmedia\alerts\interfaces\SiteAlertInterface;
 use sorokinmedia\ar_relations\RelationInterface;
 use yii\db\{ActiveQuery, ActiveRecord, Exception};
 use yii\rbac\Role;

@@ -1,5 +1,5 @@
 <?php
-namespace sorokinmedia\alerts\interfaces\UserSiteAlert;
+namespace sorokinmedia\alerts\interfaces;
 
 use sorokinmedia\alerts\entities\SiteAlert\AbstractSiteAlert;
 use yii\db\ActiveQuery;
@@ -7,7 +7,7 @@ use yii\web\IdentityInterface;
 
 /**
  * Interface UserSiteAlertInterface
- * @package sorokinmedia\alerts\interfaces\UserSiteAlert
+ * @package sorokinmedia\alerts\interfaces
  */
 interface UserSiteAlertInterface
 {

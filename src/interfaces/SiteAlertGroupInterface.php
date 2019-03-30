@@ -1,12 +1,12 @@
 <?php
-namespace sorokinmedia\alerts\interfaces\SiteAlertGroup;
+namespace sorokinmedia\alerts\interfaces;
 
 use yii\db\ActiveQuery;
 use yii\rbac\Role;
 
 /**
  * Interface SiteAlertGroupInterface
- * @package sorokinmedia\alerts\interfaces\SiteAlertGroup
+ * @package sorokinmedia\alerts\interfaces
  */
 interface SiteAlertGroupInterface
 {
