@@ -60,4 +60,10 @@ interface SiteAlertInterface
      * @return bool
      */
     public function resetGroup(): bool;
+
+    /**
+     * запуск показа определенного алерта
+     * @return bool
+     */
+    public function startShowing(): bool;
 }

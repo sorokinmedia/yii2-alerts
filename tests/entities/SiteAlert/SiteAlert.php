@@ -19,4 +19,12 @@ class SiteAlert extends AbstractSiteAlert
     {
         return true;
     }
+
+    /**
+     * @return bool
+     */
+    public function startShowing(): bool
+    {
+        return true;
+    }
 }

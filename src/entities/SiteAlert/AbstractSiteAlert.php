@@ -197,4 +197,10 @@ abstract class AbstractSiteAlert extends ActiveRecord implements RelationInterfa
         }
         return true;
     }
+
+    /**
+     * запуск показа определенного алерта
+     * @return bool
+     */
+    abstract public function startShowing(): bool;
 }

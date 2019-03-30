@@ -139,6 +139,18 @@ class SiteAlertTest extends TestCase
 
     /**
      * @group alert
+     * @throws \yii\base\InvalidConfigException
+     * @throws \yii\db\Exception
+     */
+    public function testBeforeSiteAlertDelete()
+    {
+        $this->initDb();
+        $model = SiteAlert::findOne(1);
+        $this->assertTrue($model->beforeSiteAlertDelete());
+    }
+
+    /**
+     * @group alert
      * @throws \Throwable
      * @throws \yii\base\InvalidConfigException
      * @throws \yii\db\Exception
@@ -165,5 +177,17 @@ class SiteAlertTest extends TestCase
         $this->assertTrue($model->resetGroup());
         $model->refresh();
         $this->assertNull($model->group_id);
+    }
+
+    /**
+     * @group alert
+     * @throws \yii\base\InvalidConfigException
+     * @throws \yii\db\Exception
+     */
+    public function testStartShowing()
+    {
+        $this->initDb();
+        $model = SiteAlert::findOne(1);
+        $this->assertTrue($model->startShowing());
     }
 }
