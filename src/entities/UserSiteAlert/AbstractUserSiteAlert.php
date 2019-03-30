@@ -2,6 +2,7 @@
 namespace sorokinmedia\alerts\entities\UserSiteAlert;
 
 use sorokinmedia\alerts\entities\SiteAlert\AbstractSiteAlert;
+use sorokinmedia\alerts\interfaces\UserSiteAlert\UserSiteAlertInterface;
 use sorokinmedia\ar_relations\RelationInterface;
 use yii\db\{ActiveQuery, ActiveRecord, Exception};
 use yii\web\IdentityInterface;

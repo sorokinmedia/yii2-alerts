@@ -29,6 +29,7 @@
             "sorokinmedia\\alerts\\": "src/",
             "sorokinmedia\\alerts\\entities\\": "src/entities/",
             "sorokinmedia\\alerts\\forms\\": "src/forms/",
+            "sorokinmedia\\alerts\\interfaces\\": "src/interfaces",
             "sorokinmedia\\alerts\\handlers\\": "src/handlers/",
             "sorokinmedia\\alerts\\migrations\\": "src/migrations/",
             "sorokinmedia\\alerts\\tests\\": "tests/",
