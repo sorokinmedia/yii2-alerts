@@ -1,4 +1,5 @@
 <?php
+
 namespace sorokinmedia\alerts\tests\entities\Company;
 
 use sorokinmedia\alerts\forms\SiteAlertForm;
@@ -6,6 +7,9 @@ use sorokinmedia\alerts\tests\entities\SiteAlert\SiteAlert;
 use sorokinmedia\alerts\tests\entities\SiteAlertGroup\SiteAlertGroup;
 use sorokinmedia\alerts\tests\entities\UserSiteAlert\UserSiteAlert;
 use sorokinmedia\alerts\tests\TestCase;
+use Throwable;
+use yii\base\InvalidConfigException;
+use yii\db\Exception;
 
 /**
  * Class SiteAlertTest
@@ -15,10 +19,10 @@ class SiteAlertTest extends TestCase
 {
     /**
      * @group alert
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testFields()
+    public function testFields(): void
     {
         $this->initDb();
         $alert = new SiteAlert();
@@ -40,10 +44,10 @@ class SiteAlertTest extends TestCase
 
     /**
      * @group alert
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testRelations()
+    public function testRelations(): void
     {
         $this->initDb();
         $alert = SiteAlert::findOne(1);
@@ -54,9 +58,9 @@ class SiteAlertTest extends TestCase
 
     /**
      * @group alert
-     * @throws \Throwable
+     * @throws Throwable
      */
-    public function testGetFromForm()
+    public function testGetFromForm(): void
     {
         $this->initDb();
         $alert_form = new SiteAlertForm([
@@ -84,11 +88,11 @@ class SiteAlertTest extends TestCase
 
     /**
      * @group alert
-     * @throws \Throwable
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testInsertModel()
+    public function testInsertModel(): void
     {
         $this->initDb();
         $alert_form = new SiteAlertForm([
@@ -117,11 +121,11 @@ class SiteAlertTest extends TestCase
 
     /**
      * @group alert
-     * @throws \Throwable
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testUpdateModel()
+    public function testUpdateModel(): void
     {
         $this->initDb();
         $model = SiteAlert::findOne(1);
@@ -139,10 +143,10 @@ class SiteAlertTest extends TestCase
 
     /**
      * @group alert
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testBeforeSiteAlertDelete()
+    public function testBeforeSiteAlertDelete(): void
     {
         $this->initDb();
         $model = SiteAlert::findOne(1);
@@ -151,11 +155,11 @@ class SiteAlertTest extends TestCase
 
     /**
      * @group alert
-     * @throws \Throwable
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testDeleteModel()
+    public function testDeleteModel(): void
     {
         $this->initDb();
         $model = SiteAlert::findOne(1);
@@ -166,11 +170,11 @@ class SiteAlertTest extends TestCase
 
     /**
      * @group alert
-     * @throws \Throwable
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testResetGroup()
+    public function testResetGroup(): void
     {
         $this->initDb();
         $model = SiteAlert::findOne(1);
@@ -181,10 +185,10 @@ class SiteAlertTest extends TestCase
 
     /**
      * @group alert
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testStartShowing()
+    public function testStartShowing(): void
     {
         $this->initDb();
         $model = SiteAlert::findOne(1);

@@ -1,4 +1,5 @@
 <?php
+
 namespace sorokinmedia\alerts\tests\entities;
 
 
@@ -14,21 +15,21 @@ trait RelationClassTrait
     public $__userSiteAlertClass;
     public $__userClass;
 
-    public function initClasses()
+    /**
+     * инициализация связей
+     */
+    public function init(): void
+    {
+        parent::init();
+        $this->initClasses();
+    }
+
+    public function initClasses(): void
     {
         $this->__siteAlertClass = SiteAlert::class;
         $this->__siteAlertGroupClass = SiteAlertGroup::class;
         $this->__userSiteAlertClass = UserSiteAlert::class;
         $this->__userClass = User::class;
-    }
-
-    /**
-     * инициализация связей
-     */
-    public function init()
-    {
-        parent::init();
-        $this->initClasses();
     }
 
     /**

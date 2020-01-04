@@ -1,12 +1,14 @@
 <?php
+
 namespace sorokinmedia\alerts\tests\entities\Company;
 
-use sorokinmedia\alerts\forms\SiteAlertForm;
 use sorokinmedia\alerts\tests\entities\SiteAlert\SiteAlert;
-use sorokinmedia\alerts\tests\entities\SiteAlertGroup\SiteAlertGroup;
 use sorokinmedia\alerts\tests\entities\UserSiteAlert\UserSiteAlert;
 use sorokinmedia\alerts\tests\TestCase;
 use sorokinmedia\user\tests\entities\User\User;
+use Throwable;
+use yii\base\InvalidConfigException;
+use yii\db\Exception;
 use yii\web\IdentityInterface;
 
 /**
@@ -17,10 +19,10 @@ class UserSiteAlertTest extends TestCase
 {
     /**
      * @group user_alert
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testFields()
+    public function testFields(): void
     {
         $this->initDb();
         $model = new UserSiteAlert();
@@ -41,10 +43,10 @@ class UserSiteAlertTest extends TestCase
 
     /**
      * @group user_alert
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testRelations()
+    public function testRelations(): void
     {
         $this->initDb();
         $model = UserSiteAlert::findOne(1);
@@ -55,9 +57,9 @@ class UserSiteAlertTest extends TestCase
 
     /**
      * @group user_alert
-     * @throws \Throwable
+     * @throws Throwable
      */
-    public function testCreateOld()
+    public function testCreateOld(): void
     {
         $this->initDb();
         $user = User::findOne(1);
@@ -68,9 +70,9 @@ class UserSiteAlertTest extends TestCase
 
     /**
      * @group user_alert
-     * @throws \Throwable
+     * @throws Throwable
      */
-    public function testCreateNew()
+    public function testCreateNew(): void
     {
         $this->initDb();
         $this->initDbAdditional();
@@ -83,11 +85,11 @@ class UserSiteAlertTest extends TestCase
 
     /**
      * @group user_alert
-     * @throws \Throwable
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testUpdateViewCount()
+    public function testUpdateViewCount(): void
     {
         $this->initDb();
         $model = UserSiteAlert::findOne(1);
@@ -100,11 +102,11 @@ class UserSiteAlertTest extends TestCase
 
     /**
      * @group user_alert
-     * @throws \Throwable
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testClickEvent()
+    public function testClickEvent(): void
     {
         $this->initDb();
         $model = UserSiteAlert::findOne(1);
@@ -115,11 +117,11 @@ class UserSiteAlertTest extends TestCase
 
     /**
      * @group user_alert
-     * @throws \Throwable
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testCloseEvent()
+    public function testCloseEvent(): void
     {
         $this->initDb();
         $model = UserSiteAlert::findOne(1);
@@ -130,11 +132,11 @@ class UserSiteAlertTest extends TestCase
 
     /**
      * @group user_alert
-     * @throws \Throwable
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testMakeRemovable()
+    public function testMakeRemovable(): void
     {
         $this->initDb();
         $model = UserSiteAlert::findOne(1);
@@ -144,11 +146,11 @@ class UserSiteAlertTest extends TestCase
 
     /**
      * @group user_alert
-     * @throws \Throwable
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testMakeFinished()
+    public function testMakeFinished(): void
     {
         $this->initDb();
         $model = UserSiteAlert::findOne(1);
@@ -158,11 +160,11 @@ class UserSiteAlertTest extends TestCase
 
     /**
      * @group user_alert
-     * @throws \Throwable
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testAfterFinish()
+    public function testAfterFinish(): void
     {
         $this->initDb();
         $model = UserSiteAlert::findOne(1);
@@ -171,11 +173,11 @@ class UserSiteAlertTest extends TestCase
 
     /**
      * @group user_alert
-     * @throws \Throwable
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testDeleteModel()
+    public function testDeleteModel(): void
     {
         $this->initDb();
         $model = UserSiteAlert::findOne(1);
@@ -186,11 +188,11 @@ class UserSiteAlertTest extends TestCase
 
     /**
      * @group user_alert
-     * @throws \Throwable
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testBeforeDeleteUserSiteAlert()
+    public function testBeforeDeleteUserSiteAlert(): void
     {
         $this->initDb();
         $model = UserSiteAlert::findOne(1);

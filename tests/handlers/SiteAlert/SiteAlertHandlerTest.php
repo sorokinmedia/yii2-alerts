@@ -1,9 +1,13 @@
 <?php
+
 namespace sorokinmedia\alerts\tests\handlers\SiteAlert;
 
 use sorokinmedia\alerts\handlers\SiteAlert\SiteAlertHandler;
 use sorokinmedia\alerts\tests\entities\SiteAlert\SiteAlert;
 use sorokinmedia\alerts\tests\TestCase;
+use yii\base\InvalidConfigException;
+use yii\db\Exception;
+use yii\web\ServerErrorHttpException;
 
 /**
  * Class SiteAlertHandlerTest
@@ -13,11 +17,11 @@ class SiteAlertHandlerTest extends TestCase
 {
     /**
      * @group site-alert-handler
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
-     * @throws \yii\web\ServerErrorHttpException
+     * @throws InvalidConfigException
+     * @throws Exception
+     * @throws ServerErrorHttpException
      */
-    public function testHandler()
+    public function testHandler(): void
     {
         $this->initDb();
         $model = SiteAlert::findOne(1);

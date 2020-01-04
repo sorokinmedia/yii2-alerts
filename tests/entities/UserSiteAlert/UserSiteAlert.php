@@ -1,4 +1,5 @@
 <?php
+
 namespace sorokinmedia\alerts\tests\entities\UserSiteAlert;
 
 use sorokinmedia\alerts\entities\UserSiteAlert\AbstractUserSiteAlert;

@@ -1,10 +1,14 @@
 <?php
+
 namespace sorokinmedia\alerts\tests\entities\Company;
 
 use sorokinmedia\alerts\forms\SiteAlertGroupForm;
 use sorokinmedia\alerts\tests\entities\SiteAlert\SiteAlert;
 use sorokinmedia\alerts\tests\entities\SiteAlertGroup\SiteAlertGroup;
 use sorokinmedia\alerts\tests\TestCase;
+use Throwable;
+use yii\base\InvalidConfigException;
+use yii\db\Exception;
 use yii\rbac\Role;
 
 /**
@@ -15,10 +19,10 @@ class SiteAlertGroupTest extends TestCase
 {
     /**
      * @group alert_group
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testFields()
+    public function testFields(): void
     {
         $this->initDb();
         $group = new SiteAlertGroup();
@@ -35,10 +39,10 @@ class SiteAlertGroupTest extends TestCase
 
     /**
      * @group alert_group
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testRelations()
+    public function testRelations(): void
     {
         $this->initDb();
         $group = SiteAlertGroup::findOne(1);
@@ -48,11 +52,11 @@ class SiteAlertGroupTest extends TestCase
 
     /**
      * @group alert_group
-     * @throws \Throwable
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testGetRoles()
+    public function testGetRoles(): void
     {
         $this->initDb();
         $roles = SiteAlertGroup::getRoles();
@@ -61,11 +65,11 @@ class SiteAlertGroupTest extends TestCase
 
     /**
      * @group alert_group
-     * @throws \Throwable
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testGetGroupsArray()
+    public function testGetGroupsArray(): void
     {
         $this->initDb();
         $array = SiteAlertGroup::getGroupsArray();
@@ -75,9 +79,9 @@ class SiteAlertGroupTest extends TestCase
 
     /**
      * @group alert_group
-     * @throws \Throwable
+     * @throws Throwable
      */
-    public function testGetFromForm()
+    public function testGetFromForm(): void
     {
         $this->initDb();
         $group_form = new SiteAlertGroupForm([
@@ -95,11 +99,11 @@ class SiteAlertGroupTest extends TestCase
 
     /**
      * @group alert_group
-     * @throws \Throwable
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testInsertModel()
+    public function testInsertModel(): void
     {
         $this->initDb();
         $group_form = new SiteAlertGroupForm([
@@ -118,11 +122,11 @@ class SiteAlertGroupTest extends TestCase
 
     /**
      * @group alert_group
-     * @throws \Throwable
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testUpdateModel()
+    public function testUpdateModel(): void
     {
         $this->initDb();
         $group_form = new SiteAlertGroupForm([
@@ -142,11 +146,11 @@ class SiteAlertGroupTest extends TestCase
 
     /**
      * @group alert_group
-     * @throws \Throwable
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testDeleteModel()
+    public function testDeleteModel(): void
     {
         $this->initDb();
         $group = SiteAlertGroup::findOne(1);

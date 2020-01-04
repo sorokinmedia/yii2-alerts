@@ -1,9 +1,12 @@
 <?php
+
 namespace sorokinmedia\alerts\tests\forms;
 
 use sorokinmedia\alerts\forms\SiteAlertForm;
 use sorokinmedia\alerts\tests\entities\SiteAlert\SiteAlert;
 use sorokinmedia\alerts\tests\TestCase;
+use yii\base\InvalidConfigException;
+use yii\db\Exception;
 
 /**
  * Class SiteAlertGroupFormTest
@@ -15,10 +18,10 @@ class SiteAlertFormTest extends TestCase
 {
     /**
      * @group forms
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testConstruct()
+    public function testConstruct(): void
     {
         $this->initDb();
         $alert = new SiteAlert();
@@ -46,10 +49,10 @@ class SiteAlertFormTest extends TestCase
 
     /**
      * @group forms
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testConstructWithModel()
+    public function testConstructWithModel(): void
     {
         $this->initDb();
         $alert = SiteAlert::findOne(1);

@@ -1,9 +1,13 @@
 <?php
+
 namespace sorokinmedia\alert\tests\handlers\UserSiteAlert\actions;
 
 use sorokinmedia\alerts\handlers\UserSiteAlert\UserSiteAlertHandler;
 use sorokinmedia\alerts\tests\entities\UserSiteAlert\UserSiteAlert;
 use sorokinmedia\alerts\tests\TestCase;
+use Throwable;
+use yii\base\InvalidConfigException;
+use yii\db\Exception;
 
 /**
  * Class DeleteUserSiteAlertTest
@@ -13,11 +17,11 @@ class DeleteUserSiteAlertTest extends TestCase
 {
     /**
      * @group user-site-alert-handler
-     * @throws \Throwable
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws InvalidConfigException
+     * @throws Exception
      */
-    public function testHandler()
+    public function testHandler(): void
     {
         $this->initDb();
         $this->initDbAdditional();
