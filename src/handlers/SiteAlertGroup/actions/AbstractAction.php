@@ -1,8 +1,9 @@
 <?php
+
 namespace sorokinmedia\alerts\handlers\SiteAlertGroup\actions;
 
-use sorokinmedia\alerts\handlers\SiteAlertGroup\interfaces\ActionExecutable;
 use sorokinmedia\alerts\entities\SiteAlertGroup\AbstractSiteAlertGroup;
+use sorokinmedia\alerts\handlers\SiteAlertGroup\interfaces\ActionExecutable;
 
 /**
  * Class AbstractAction

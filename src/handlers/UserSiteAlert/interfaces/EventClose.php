@@ -1,4 +1,5 @@
 <?php
+
 namespace sorokinmedia\alerts\handlers\UserSiteAlert\interfaces;
 
 /**
@@ -10,5 +11,5 @@ interface EventClose
     /**
      * @return bool
      */
-    public function eventClose() : bool;
+    public function eventClose(): bool;
 }

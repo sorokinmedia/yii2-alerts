@@ -1,4 +1,5 @@
 <?php
+
 namespace sorokinmedia\alerts\handlers\UserSiteAlert\interfaces;
 
 /**
@@ -10,5 +11,5 @@ interface UpdateViews
     /**
      * @return bool
      */
-    public function updateViews() : bool;
+    public function updateViews(): bool;
 }

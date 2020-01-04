@@ -1,9 +1,10 @@
 <?php
+
 namespace sorokinmedia\alerts\forms;
 
 use sorokinmedia\alerts\entities\SiteAlertGroup\AbstractSiteAlertGroup;
 use sorokinmedia\alerts\entities\SiteAlertGroup\SiteAlertGroupInterface;
-use sorokinmedia\user\entities\User\UserInterface;
+use Yii;
 use yii\base\Model;
 
 /**
@@ -27,7 +28,7 @@ class SiteAlertGroupForm extends Model
      */
     public function __construct(array $config = [], AbstractSiteAlertGroup $group = null)
     {
-        if ($group !== null){
+        if ($group !== null) {
             $this->name = $group->name;
             $this->role = $group->role;
             $this->priority = $group->priority;
@@ -38,7 +39,7 @@ class SiteAlertGroupForm extends Model
     /**
      * @return array
      */
-    public function rules() : array
+    public function rules(): array
     {
         return [
             [['name', 'role', 'priority'], 'required'],
@@ -50,12 +51,12 @@ class SiteAlertGroupForm extends Model
     /**
      * @return array
      */
-    public function attributeLabels() : array
+    public function attributeLabels(): array
     {
         return [
-            'name' => \Yii::t('app', 'Название'),
-            'role' => \Yii::t('app', 'Роль'),
-            'priority' => \Yii::t('app', 'Приоритет'),
+            'name' => Yii::t('app', 'Название'),
+            'role' => Yii::t('app', 'Роль'),
+            'priority' => Yii::t('app', 'Приоритет'),
         ];
     }
 }

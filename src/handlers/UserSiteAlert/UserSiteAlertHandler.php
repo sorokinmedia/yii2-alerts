@@ -1,8 +1,12 @@
 <?php
+
 namespace sorokinmedia\alerts\handlers\UserSiteAlert;
 
 use sorokinmedia\alerts\entities\UserSiteAlert\AbstractUserSiteAlert;
-use sorokinmedia\alerts\handlers\UserSiteAlert\interfaces\{Delete, UpdateViews, EventClose, EventClick};
+use sorokinmedia\alerts\handlers\UserSiteAlert\interfaces\{Delete, EventClick, EventClose, UpdateViews};
+use Throwable;
+use yii\db\Exception;
+use yii\db\StaleObjectException;
 
 /**
  * Class UserSiteAlertHandler
@@ -26,39 +30,39 @@ class UserSiteAlertHandler implements UpdateViews, EventClose, EventClick, Delet
 
     /**
      * @return bool
-     * @throws \Throwable
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws Exception
      */
-    public function updateViews() : bool
+    public function updateViews(): bool
     {
         return (new actions\UpdateViews($this->user_site_alert))->execute();
     }
 
     /**
      * @return bool
-     * @throws \Throwable
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws Exception
      */
-    public function eventClose() : bool
+    public function eventClose(): bool
     {
         return (new actions\EventClose($this->user_site_alert))->execute();
     }
 
     /**
      * @return bool
-     * @throws \Throwable
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws Exception
      */
-    public function eventClick() : bool
+    public function eventClick(): bool
     {
         return (new actions\EventClick($this->user_site_alert))->execute();
     }
 
     /**
      * @return bool
-     * @throws \Throwable
-     * @throws \yii\db\Exception
-     * @throws \yii\db\StaleObjectException
+     * @throws Throwable
+     * @throws Exception
+     * @throws StaleObjectException
      */
     public function delete(): bool
     {

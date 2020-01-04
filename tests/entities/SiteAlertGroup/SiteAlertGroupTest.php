@@ -69,7 +69,7 @@ class SiteAlertGroupTest extends TestCase
     {
         $this->initDb();
         $array = SiteAlertGroup::getGroupsArray();
-        $this->assertInternalType('array', $array);
+        $this->assertIsArray($array);
         $this->assertNotEmpty($array);
     }
 

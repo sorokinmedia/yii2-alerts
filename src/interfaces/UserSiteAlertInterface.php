@@ -1,4 +1,5 @@
 <?php
+
 namespace sorokinmedia\alerts\interfaces;
 
 use sorokinmedia\alerts\entities\SiteAlert\AbstractSiteAlert;
@@ -12,6 +13,14 @@ use yii\web\IdentityInterface;
 interface UserSiteAlertInterface
 {
     /**
+     * статический конструктор
+     * @param IdentityInterface $user
+     * @param AbstractSiteAlert $siteAlert
+     * @return UserSiteAlertInterface
+     */
+    public static function create(IdentityInterface $user, AbstractSiteAlert $siteAlert): UserSiteAlertInterface;
+
+    /**
      * @return ActiveQuery
      */
     public function getUser(): ActiveQuery;
@@ -20,14 +29,6 @@ interface UserSiteAlertInterface
      * @return ActiveQuery
      */
     public function getAlert(): ActiveQuery;
-
-    /**
-     * статический конструктор
-     * @param IdentityInterface $user
-     * @param AbstractSiteAlert $siteAlert
-     * @return UserSiteAlertInterface
-     */
-    public static function create(IdentityInterface $user, AbstractSiteAlert $siteAlert): UserSiteAlertInterface;
 
     /**
      * обновление кол-ва показов
@@ -49,9 +50,9 @@ interface UserSiteAlertInterface
 
     /**
      * проставить метку, что алерт можно закрыть
-     * @return mixed
+     * @return void
      */
-    public function makeRemovable();
+    public function makeRemovable(): void;
 
     /**
      * проставить метку, что показ алерта завершен

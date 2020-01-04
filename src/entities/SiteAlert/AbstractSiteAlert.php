@@ -1,4 +1,5 @@
 <?php
+
 namespace sorokinmedia\alerts\entities\SiteAlert;
 
 use sorokinmedia\alerts\entities\SiteAlertGroup\AbstractSiteAlertGroup;
@@ -6,7 +7,9 @@ use sorokinmedia\alerts\entities\UserSiteAlert\AbstractUserSiteAlert;
 use sorokinmedia\alerts\forms\SiteAlertForm;
 use sorokinmedia\alerts\interfaces\SiteAlertInterface;
 use sorokinmedia\ar_relations\RelationInterface;
-use yii\db\{ActiveQuery, ActiveRecord, Exception};
+use yii\db\{ActiveQuery, ActiveRecord, Exception, StaleObjectException};
+use Throwable;
+use Yii;
 use yii\rbac\Role;
 
 /**
@@ -34,6 +37,19 @@ abstract class AbstractSiteAlert extends ActiveRecord implements RelationInterfa
     public $form;
 
     /**
+     * AbstractSiteAlert constructor.
+     * @param array $config
+     * @param SiteAlertForm|null $form
+     */
+    public function __construct(array $config = [], SiteAlertForm $form = null)
+    {
+        if ($form !== null) {
+            $this->form = $form;
+        }
+        parent::__construct($config);
+    }
+
+    /**
      * @return string
      */
     public static function tableName(): string
@@ -44,7 +60,7 @@ abstract class AbstractSiteAlert extends ActiveRecord implements RelationInterfa
     /**
      * @return array
      */
-    public function rules() : array
+    public function rules(): array
     {
         return [
             [['name', 'text', 'role', 'order_id'], 'required'],
@@ -59,18 +75,18 @@ abstract class AbstractSiteAlert extends ActiveRecord implements RelationInterfa
     /**
      * @return array
      */
-    public function attributeLabels() : array
+    public function attributeLabels(): array
     {
         return [
-            'id' => \Yii::t('app', 'ID'),
-            'name' => \Yii::t('app', 'Название'),
-            'text' => \Yii::t('app', 'Текст'),
-            'image' => \Yii::t('app', 'Изображение'),
-            'role' => \Yii::t('app', 'Роль'),
-            'view_count_to_close' => \Yii::t('app', 'Кол-во просмотров для отображения кнопки закрытия'),
-            'finish_date' => \Yii::t('app', 'Дата окончания показов'),
-            'group_id' => \Yii::t('app', 'Группа'),
-            'order_id' => \Yii::t('app', 'Порядковый номер'),
+            'id' => Yii::t('app', 'ID'),
+            'name' => Yii::t('app', 'Название'),
+            'text' => Yii::t('app', 'Текст'),
+            'image' => Yii::t('app', 'Изображение'),
+            'role' => Yii::t('app', 'Роль'),
+            'view_count_to_close' => Yii::t('app', 'Кол-во просмотров для отображения кнопки закрытия'),
+            'finish_date' => Yii::t('app', 'Дата окончания показов'),
+            'group_id' => Yii::t('app', 'Группа'),
+            'order_id' => Yii::t('app', 'Порядковый номер'),
         ];
     }
 
@@ -79,47 +95,17 @@ abstract class AbstractSiteAlert extends ActiveRecord implements RelationInterfa
      * @param $params
      * @return bool
      */
-    public function validateRole($attribute, $params)
+    public function validateRole($attribute, $params): bool
     {
         return array_key_exists($this->role, $this->__siteAlertGroupClass::getRoles());
     }
 
     /**
-     * AbstractSiteAlert constructor.
-     * @param array $config
-     * @param SiteAlertForm|null $form
-     */
-    public function __construct(array $config = [], SiteAlertForm $form = null)
-    {
-        if ($form !== null){
-            $this->form = $form;
-        }
-        parent::__construct($config);
-    }
-
-    /**
-     * @return void
-     */
-    public function getFromForm()
-    {
-        if ($this->form !== null){
-            $this->name = $this->form->name;
-            $this->text = $this->form->text;
-            $this->image = $this->form->image;
-            $this->role = $this->form->role;
-            $this->view_count_to_close = $this->form->view_count_to_close;
-            $this->finish_date = $this->form->finish_date;
-            $this->group_id = $this->form->group_id;
-            $this->order_id = $this->form->order_id;
-        }
-    }
-
-    /**
      * @return Role|null
      */
-    public function getRoleObject()
+    public function getRoleObject(): ?Role
     {
-        return \Yii::$app->authManager->getRole($this->role);
+        return Yii::$app->authManager->getRole($this->role);
     }
 
     /**
@@ -141,15 +127,32 @@ abstract class AbstractSiteAlert extends ActiveRecord implements RelationInterfa
     /**
      * @return bool
      * @throws Exception
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function insertModel(): bool
     {
         $this->getFromForm();
-        if (!$this->insert()){
-            throw new Exception(\Yii::t('app', 'Ошибка при добавлении в БД'));
+        if (!$this->insert()) {
+            throw new Exception(Yii::t('app', 'Ошибка при добавлении в БД'));
         }
         return true;
+    }
+
+    /**
+     * @return void
+     */
+    public function getFromForm(): void
+    {
+        if ($this->form !== null) {
+            $this->name = $this->form->name;
+            $this->text = $this->form->text;
+            $this->image = $this->form->image;
+            $this->role = $this->form->role;
+            $this->view_count_to_close = $this->form->view_count_to_close;
+            $this->finish_date = $this->form->finish_date;
+            $this->group_id = $this->form->group_id;
+            $this->order_id = $this->form->order_id;
+        }
     }
 
     /**
@@ -159,8 +162,23 @@ abstract class AbstractSiteAlert extends ActiveRecord implements RelationInterfa
     public function updateModel(): bool
     {
         $this->getFromForm();
-        if (!$this->save()){
-            throw new Exception(\Yii::t('app', 'Ошибка при обновлении в БД'));
+        if (!$this->save()) {
+            throw new Exception(Yii::t('app', 'Ошибка при обновлении в БД'));
+        }
+        return true;
+    }
+
+    /**
+     * @return bool
+     * @throws Exception
+     * @throws Throwable
+     * @throws StaleObjectException
+     */
+    public function deleteModel(): bool
+    {
+        $this->beforeSiteAlertDelete();
+        if (!$this->delete()) {
+            throw new Exception(Yii::t('app', 'Ошибка при удалении из БД'));
         }
         return true;
     }
@@ -174,27 +192,12 @@ abstract class AbstractSiteAlert extends ActiveRecord implements RelationInterfa
     /**
      * @return bool
      * @throws Exception
-     * @throws \Throwable
-     * @throws \yii\db\StaleObjectException
-     */
-    public function deleteModel(): bool
-    {
-        $this->beforeSiteAlertDelete();
-        if (!$this->delete()){
-            throw new Exception(\Yii::t('app', 'Ошибка при удалении из БД'));
-        }
-        return true;
-    }
-
-    /**
-     * @return bool
-     * @throws Exception
      */
     public function resetGroup(): bool
     {
         $this->group_id = null;
-        if (!$this->save()){
-            throw new Exception(\Yii::t('app', 'Ошибка при сбросе группы'));
+        if (!$this->save()) {
+            throw new Exception(Yii::t('app', 'Ошибка при сбросе группы'));
         }
         return true;
     }

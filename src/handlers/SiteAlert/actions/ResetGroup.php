@@ -1,5 +1,9 @@
 <?php
+
 namespace sorokinmedia\alerts\handlers\SiteAlert\actions;
+
+use Throwable;
+use yii\db\Exception;
 
 /**
  * Class ResetGroup
@@ -9,11 +13,10 @@ class ResetGroup extends AbstractAction
 {
     /**
      * @return bool
-     * @throws \Throwable
-     * @throws \yii\db\Exception
-     * @throws \yii\db\StaleObjectException
+     * @throws Throwable
+     * @throws Exception
      */
-    public function execute() : bool
+    public function execute(): bool
     {
         $this->site_alert->resetGroup();
         return true;

@@ -1,8 +1,12 @@
 <?php
+
 namespace sorokinmedia\alerts\handlers\SiteAlert;
 
 use sorokinmedia\alerts\entities\SiteAlert\AbstractSiteAlert;
-use sorokinmedia\alerts\handlers\SiteAlert\interfaces\{Create, ResetGroup, Update, Delete};
+use sorokinmedia\alerts\handlers\SiteAlert\interfaces\{Create, Delete, ResetGroup, Update};
+use Throwable;
+use yii\db\Exception;
+use yii\db\StaleObjectException;
 
 /**
  * Class SiteAlertHandler
@@ -26,41 +30,40 @@ class SiteAlertHandler implements Create, Update, Delete, ResetGroup
 
     /**
      * @return bool
-     * @throws \Throwable
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws Exception
      */
-    public function create() : bool
+    public function create(): bool
     {
         return (new actions\Create($this->site_alert))->execute();
     }
 
     /**
      * @return bool
-     * @throws \yii\db\Exception
+     * @throws Exception
      */
-    public function update() : bool
+    public function update(): bool
     {
         return (new actions\Update($this->site_alert))->execute();
     }
 
     /**
      * @return bool
-     * @throws \Throwable
-     * @throws \yii\db\Exception
-     * @throws \yii\db\StaleObjectException
+     * @throws Throwable
+     * @throws Exception
+     * @throws StaleObjectException
      */
-    public function delete() : bool
+    public function delete(): bool
     {
         return (new actions\Delete($this->site_alert))->execute();
     }
 
     /**
      * @return bool
-     * @throws \Throwable
-     * @throws \yii\db\Exception
-     * @throws \yii\db\StaleObjectException
+     * @throws Throwable
+     * @throws Exception
      */
-    public function resetGroup() : bool
+    public function resetGroup(): bool
     {
         return (new actions\ResetGroup($this->site_alert))->execute();
     }

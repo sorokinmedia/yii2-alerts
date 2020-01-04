@@ -1,4 +1,5 @@
 <?php
+
 namespace sorokinmedia\alerts\interfaces;
 
 use yii\db\ActiveQuery;
@@ -13,7 +14,7 @@ interface SiteAlertInterface
     /**
      * @return Role|null
      */
-    public function getRoleObject();
+    public function getRoleObject(): ?Role;
 
     /**
      * @return ActiveQuery
@@ -29,7 +30,7 @@ interface SiteAlertInterface
      * перенос данных из формы в модель
      * @return void
      */
-    public function getFromForm();
+    public function getFromForm(): void;
 
     /**
      * добавление модели

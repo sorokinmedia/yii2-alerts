@@ -1,5 +1,9 @@
 <?php
+
 namespace sorokinmedia\alerts\handlers\SiteAlertGroup\actions;
+
+use Throwable;
+use yii\db\Exception;
 
 /**
  * Class Create
@@ -9,10 +13,10 @@ class Create extends AbstractAction
 {
     /**
      * @return bool
-     * @throws \Throwable
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws Exception
      */
-    public function execute() : bool
+    public function execute(): bool
     {
         $this->site_alert_group->insertModel();
         return true;

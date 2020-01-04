@@ -1,8 +1,12 @@
 <?php
+
 namespace sorokinmedia\alerts\handlers\SiteAlertGroup;
 
 use sorokinmedia\alerts\entities\SiteAlertGroup\AbstractSiteAlertGroup;
-use sorokinmedia\alerts\handlers\SiteAlertGroup\interfaces\{Create, Update, Delete};
+use sorokinmedia\alerts\handlers\SiteAlertGroup\interfaces\{Create, Delete, Update};
+use Throwable;
+use yii\db\Exception;
+use yii\db\StaleObjectException;
 
 /**
  * Class SiteAlertGroupHandler
@@ -26,30 +30,30 @@ class SiteAlertGroupHandler implements Create, Update, Delete
 
     /**
      * @return bool
-     * @throws \Throwable
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws Exception
      */
-    public function create() : bool
+    public function create(): bool
     {
         return (new actions\Create($this->site_alert_group))->execute();
     }
 
     /**
      * @return bool
-     * @throws \yii\db\Exception
+     * @throws Exception
      */
-    public function update() : bool
+    public function update(): bool
     {
         return (new actions\Update($this->site_alert_group))->execute();
     }
 
     /**
      * @return bool
-     * @throws \Throwable
-     * @throws \yii\db\Exception
-     * @throws \yii\db\StaleObjectException
+     * @throws Throwable
+     * @throws Exception
+     * @throws StaleObjectException
      */
-    public function delete() : bool
+    public function delete(): bool
     {
         return (new actions\Delete($this->site_alert_group))->execute();
     }

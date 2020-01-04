@@ -1,8 +1,10 @@
 <?php
+
 namespace sorokinmedia\alerts\forms;
 
 use sorokinmedia\alerts\entities\SiteAlert\AbstractSiteAlert;
 use sorokinmedia\alerts\entities\SiteAlertGroup\AbstractSiteAlertGroup;
+use Yii;
 use yii\base\Model;
 
 /**
@@ -36,7 +38,7 @@ class SiteAlertForm extends Model
      */
     public function __construct(array $config = [], AbstractSiteAlert $alert = null)
     {
-        if ($alert !== null){
+        if ($alert !== null) {
             $this->name = $alert->name;
             $this->text = $alert->text;
             $this->image = $alert->image;
@@ -52,7 +54,7 @@ class SiteAlertForm extends Model
     /**
      * @return array
      */
-    public function rules() : array
+    public function rules(): array
     {
         return [
             [['name', 'text', 'role', 'order_id'], 'required'],
@@ -66,17 +68,17 @@ class SiteAlertForm extends Model
     /**
      * @return array
      */
-    public function attributeLabels() : array
+    public function attributeLabels(): array
     {
         return [
-            'name' => \Yii::t('app', 'Название'),
-            'text' => \Yii::t('app', 'Текст'),
-            'image' => \Yii::t('app', 'Изображение'),
-            'role' => \Yii::t('app', 'Роль'),
-            'view_count_to_close' => \Yii::t('app', 'Кол-во просмотров для отображения кнопки закрытия'),
-            'finish_date' => \Yii::t('app', 'Дата окончания показов'),
-            'group_id' => \Yii::t('app', 'Группа'),
-            'order_id' => \Yii::t('app', 'Порядковый номер'),
+            'name' => Yii::t('app', 'Название'),
+            'text' => Yii::t('app', 'Текст'),
+            'image' => Yii::t('app', 'Изображение'),
+            'role' => Yii::t('app', 'Роль'),
+            'view_count_to_close' => Yii::t('app', 'Кол-во просмотров для отображения кнопки закрытия'),
+            'finish_date' => Yii::t('app', 'Дата окончания показов'),
+            'group_id' => Yii::t('app', 'Группа'),
+            'order_id' => Yii::t('app', 'Порядковый номер'),
         ];
     }
 }

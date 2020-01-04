@@ -2,4 +2,4 @@
 vendor/
 composer.lock
 .idea/
-/src/handlers/UserSiteAlert/UserSiteAlertHandler.php
+.phpunit.result.cache

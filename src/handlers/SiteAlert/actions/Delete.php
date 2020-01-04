@@ -1,5 +1,10 @@
 <?php
+
 namespace sorokinmedia\alerts\handlers\SiteAlert\actions;
+
+use Throwable;
+use yii\db\Exception;
+use yii\db\StaleObjectException;
 
 /**
  * Class Delete
@@ -9,11 +14,11 @@ class Delete extends AbstractAction
 {
     /**
      * @return bool
-     * @throws \Throwable
-     * @throws \yii\db\Exception
-     * @throws \yii\db\StaleObjectException
+     * @throws Throwable
+     * @throws Exception
+     * @throws StaleObjectException
      */
-    public function execute() : bool
+    public function execute(): bool
     {
         $this->site_alert->deleteModel();
         return true;

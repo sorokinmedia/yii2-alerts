@@ -1,14 +1,15 @@
 <?php
+
 namespace sorokinmedia\alerts\handlers\SiteAlert\actions;
 
-use sorokinmedia\alerts\handlers\SiteAlert\interfaces\ActionExecutable;
 use sorokinmedia\alerts\entities\SiteAlert\AbstractSiteAlert;
+use sorokinmedia\alerts\handlers\SiteAlert\interfaces\ActionExecutable;
 
 /**
  * Class AbstractAction
  * @package sorokinmedia\alerts\handlers\SiteAlert\actions
  *
- *  @property AbstractSiteAlert $site_alert
+ * @property AbstractSiteAlert $site_alert
  */
 abstract class AbstractAction implements ActionExecutable
 {

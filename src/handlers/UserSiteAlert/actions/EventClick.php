@@ -1,5 +1,9 @@
 <?php
+
 namespace sorokinmedia\alerts\handlers\UserSiteAlert\actions;
+
+use Throwable;
+use yii\db\Exception;
 
 /**
  * Class EventClick
@@ -9,10 +13,10 @@ class EventClick extends AbstractAction
 {
     /**
      * @return bool
-     * @throws \Throwable
-     * @throws \yii\db\Exception
+     * @throws Throwable
+     * @throws Exception
      */
-    public function execute() : bool
+    public function execute(): bool
     {
         $this->user_site_alert->clickEvent();
         return true;
