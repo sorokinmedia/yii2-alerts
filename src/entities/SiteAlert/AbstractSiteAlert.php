@@ -78,15 +78,15 @@ abstract class AbstractSiteAlert extends ActiveRecord implements RelationInterfa
     public function attributeLabels(): array
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Название'),
-            'text' => Yii::t('app', 'Текст'),
-            'image' => Yii::t('app', 'Изображение'),
-            'role' => Yii::t('app', 'Роль'),
-            'view_count_to_close' => Yii::t('app', 'Кол-во просмотров для отображения кнопки закрытия'),
-            'finish_date' => Yii::t('app', 'Дата окончания показов'),
-            'group_id' => Yii::t('app', 'Группа'),
-            'order_id' => Yii::t('app', 'Порядковый номер'),
+            'id' => Yii::t('app-sm-alerts', 'ID'),
+            'name' => Yii::t('app-sm-alerts', 'Название'),
+            'text' => Yii::t('app-sm-alerts', 'Текст'),
+            'image' => Yii::t('app-sm-alerts', 'Изображение'),
+            'role' => Yii::t('app-sm-alerts', 'Роль'),
+            'view_count_to_close' => Yii::t('app-sm-alerts', 'Кол-во просмотров для отображения кнопки закрытия'),
+            'finish_date' => Yii::t('app-sm-alerts', 'Дата окончания показов'),
+            'group_id' => Yii::t('app-sm-alerts', 'Группа'),
+            'order_id' => Yii::t('app-sm-alerts', 'Порядковый номер'),
         ];
     }
 
@@ -133,7 +133,7 @@ abstract class AbstractSiteAlert extends ActiveRecord implements RelationInterfa
     {
         $this->getFromForm();
         if (!$this->insert()) {
-            throw new Exception(Yii::t('app', 'Ошибка при добавлении в БД'));
+            throw new Exception(Yii::t('app-sm-alerts', 'Ошибка при добавлении в БД'));
         }
         return true;
     }
@@ -163,7 +163,7 @@ abstract class AbstractSiteAlert extends ActiveRecord implements RelationInterfa
     {
         $this->getFromForm();
         if (!$this->save()) {
-            throw new Exception(Yii::t('app', 'Ошибка при обновлении в БД'));
+            throw new Exception(Yii::t('app-sm-alerts', 'Ошибка при обновлении в БД'));
         }
         return true;
     }
@@ -178,7 +178,7 @@ abstract class AbstractSiteAlert extends ActiveRecord implements RelationInterfa
     {
         $this->beforeSiteAlertDelete();
         if (!$this->delete()) {
-            throw new Exception(Yii::t('app', 'Ошибка при удалении из БД'));
+            throw new Exception(Yii::t('app-sm-alerts', 'Ошибка при удалении из БД'));
         }
         return true;
     }
@@ -197,7 +197,7 @@ abstract class AbstractSiteAlert extends ActiveRecord implements RelationInterfa
     {
         $this->group_id = null;
         if (!$this->save()) {
-            throw new Exception(Yii::t('app', 'Ошибка при сбросе группы'));
+            throw new Exception(Yii::t('app-sm-alerts', 'Ошибка при сбросе группы'));
         }
         return true;
     }

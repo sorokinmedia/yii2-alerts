@@ -54,9 +54,9 @@ class SiteAlertGroupForm extends Model
     public function attributeLabels(): array
     {
         return [
-            'name' => Yii::t('app', 'Название'),
-            'role' => Yii::t('app', 'Роль'),
-            'priority' => Yii::t('app', 'Приоритет'),
+            'name' => Yii::t('app-sm-alerts', 'Название'),
+            'role' => Yii::t('app-sm-alerts', 'Роль'),
+            'priority' => Yii::t('app-sm-alerts', 'Приоритет'),
         ];
     }
 }

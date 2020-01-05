@@ -55,7 +55,7 @@ abstract class AbstractUserSiteAlert extends ActiveRecord implements RelationInt
             'alert_id' => $siteAlert->id,
         ]);
         if (!$user_alert->insert()) {
-            throw new Exception(Yii::t('app', 'Ошибка при добавлении в БД'));
+            throw new Exception(Yii::t('app-sm-alerts', 'Ошибка при добавлении в БД'));
         }
         return $user_alert;
     }
@@ -79,14 +79,14 @@ abstract class AbstractUserSiteAlert extends ActiveRecord implements RelationInt
     public function attributeLabels(): array
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'user_id' => Yii::t('app', 'Пользователь'),
-            'alert_id' => Yii::t('app', 'Алерт'),
-            'view_count' => Yii::t('app', 'Кол-во просмотров'),
-            'is_removable' => Yii::t('app', 'Можно закрыть'),
-            'is_clicked' => Yii::t('app', 'Кликнута ссылка'),
-            'is_closed' => Yii::t('app', 'Закрыт'),
-            'is_finished' => Yii::t('app', 'Завершен'),
+            'id' => Yii::t('app-sm-alerts', 'ID'),
+            'user_id' => Yii::t('app-sm-alerts', 'Пользователь'),
+            'alert_id' => Yii::t('app-sm-alerts', 'Алерт'),
+            'view_count' => Yii::t('app-sm-alerts', 'Кол-во просмотров'),
+            'is_removable' => Yii::t('app-sm-alerts', 'Можно закрыть'),
+            'is_clicked' => Yii::t('app-sm-alerts', 'Кликнута ссылка'),
+            'is_closed' => Yii::t('app-sm-alerts', 'Закрыт'),
+            'is_finished' => Yii::t('app-sm-alerts', 'Завершен'),
         ];
     }
 
@@ -119,7 +119,7 @@ abstract class AbstractUserSiteAlert extends ActiveRecord implements RelationInt
             $this->makeRemovable();
         }
         if (!$this->save()) {
-            throw new Exception(Yii::t('app', 'Ошибка при сохранении счетчика'));
+            throw new Exception(Yii::t('app-sm-alerts', 'Ошибка при сохранении счетчика'));
         }
         return true;
     }
@@ -143,7 +143,7 @@ abstract class AbstractUserSiteAlert extends ActiveRecord implements RelationInt
         $this->is_clicked = 1;
         $this->makeFinished();
         if (!$this->save()) {
-            throw new Exception(Yii::t('app', 'Ошибка при сохранении события клик'));
+            throw new Exception(Yii::t('app-sm-alerts', 'Ошибка при сохранении события клик'));
         }
         return true;
     }
@@ -174,7 +174,7 @@ abstract class AbstractUserSiteAlert extends ActiveRecord implements RelationInt
         $this->is_closed = 1;
         $this->makeFinished();
         if (!$this->save()) {
-            throw new Exception(Yii::t('app', 'Ошибка при сохранении события закрытие'));
+            throw new Exception(Yii::t('app-sm-alerts', 'Ошибка при сохранении события закрытие'));
         }
         return true;
     }
@@ -188,7 +188,7 @@ abstract class AbstractUserSiteAlert extends ActiveRecord implements RelationInt
     public function deleteModel(): bool
     {
         if (!$this->delete()) {
-            throw new Exception(Yii::t('app', 'Ошибка при удалении из БД'));
+            throw new Exception(Yii::t('app-sm-alerts', 'Ошибка при удалении из БД'));
         }
         return true;
     }

@@ -88,10 +88,10 @@ abstract class AbstractSiteAlertGroup extends ActiveRecord implements RelationIn
     public function attributeLabels(): array
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Название'),
-            'role' => Yii::t('app', 'Роль'),
-            'priority' => Yii::t('app', 'Приоритет'),
+            'id' => Yii::t('app-sm-alerts', 'ID'),
+            'name' => Yii::t('app-sm-alerts', 'Название'),
+            'role' => Yii::t('app-sm-alerts', 'Роль'),
+            'priority' => Yii::t('app-sm-alerts', 'Приоритет'),
         ];
     }
 
@@ -120,7 +120,7 @@ abstract class AbstractSiteAlertGroup extends ActiveRecord implements RelationIn
     {
         $this->getFromForm();
         if (!$this->insert()) {
-            throw new Exception(Yii::t('app', 'Ошибка при добавлении в БД'));
+            throw new Exception(Yii::t('app-sm-alerts', 'Ошибка при добавлении в БД'));
         }
         return true;
     }
@@ -145,7 +145,7 @@ abstract class AbstractSiteAlertGroup extends ActiveRecord implements RelationIn
     {
         $this->getFromForm();
         if (!$this->save()) {
-            throw new Exception(Yii::t('app', 'Ошибка при обновлении в БД'));
+            throw new Exception(Yii::t('app-sm-alerts', 'Ошибка при обновлении в БД'));
         }
         return true;
     }
@@ -165,7 +165,7 @@ abstract class AbstractSiteAlertGroup extends ActiveRecord implements RelationIn
             }
         }
         if (!$this->delete()) {
-            throw new Exception(Yii::t('app', 'Ошибка при удалении в БД'));
+            throw new Exception(Yii::t('app-sm-alerts', 'Ошибка при удалении в БД'));
         }
         return true;
     }

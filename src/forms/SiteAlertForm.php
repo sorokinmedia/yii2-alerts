@@ -71,14 +71,14 @@ class SiteAlertForm extends Model
     public function attributeLabels(): array
     {
         return [
-            'name' => Yii::t('app', 'Название'),
-            'text' => Yii::t('app', 'Текст'),
-            'image' => Yii::t('app', 'Изображение'),
-            'role' => Yii::t('app', 'Роль'),
-            'view_count_to_close' => Yii::t('app', 'Кол-во просмотров для отображения кнопки закрытия'),
-            'finish_date' => Yii::t('app', 'Дата окончания показов'),
-            'group_id' => Yii::t('app', 'Группа'),
-            'order_id' => Yii::t('app', 'Порядковый номер'),
+            'name' => Yii::t('app-sm-alerts', 'Название'),
+            'text' => Yii::t('app-sm-alerts', 'Текст'),
+            'image' => Yii::t('app-sm-alerts', 'Изображение'),
+            'role' => Yii::t('app-sm-alerts', 'Роль'),
+            'view_count_to_close' => Yii::t('app-sm-alerts', 'Кол-во просмотров для отображения кнопки закрытия'),
+            'finish_date' => Yii::t('app-sm-alerts', 'Дата окончания показов'),
+            'group_id' => Yii::t('app-sm-alerts', 'Группа'),
+            'order_id' => Yii::t('app-sm-alerts', 'Порядковый номер'),
         ];
     }
 }
